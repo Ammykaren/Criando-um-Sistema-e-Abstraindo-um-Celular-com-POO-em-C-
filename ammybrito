@@ -1,0 +1,45 @@
+ // TODO: Criar instância de um iPhone
+        var iphone = new Iphone();
+        iphone.Modelo = "iPhone X";
+        iphone.Ligar();
+        iphone.InstalarAplicativo("Instagram");
+    }
+}
+
+public abstract class Smartphone
+{
+    public string Modelo { get; set; }
+
+    public bool Ligado { get; protected set; }
+
+    public abstract void InstalarAplicativo(string aplicativo);
+
+    public void Ligar()
+    {
+        Ligado = true;
+        Console.WriteLine($"{Modelo} está ligado.");
+    }
+
+    public void Desligar()
+    {
+        Ligado = false;
+        Console.WriteLine($"{Modelo} está desligado.");
+    }
+}
+
+public class Nokia : Smartphone
+{
+    public override void InstalarAplicativo(string aplicativo)
+    {
+        Console.WriteLine($"Instalando {aplicativo} através da loja de aplicativos da Nokia.");
+    }
+}
+
+public class Iphone : Smartphone
+{
+    public override void InstalarAplicativo(string aplicativo)
+    {
+        Console.WriteLine($"Instalando {aplicativo} através da App Store da Apple.");
+    }
+}
+}
